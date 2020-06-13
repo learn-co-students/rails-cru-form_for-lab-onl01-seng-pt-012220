@@ -1,0 +1,11 @@
+<h1>Artists list </h1>
+
+<% if @artists.empty? %>
+  <p>This list is currently empty. <%= link_to "Add An Artist Here!", new_artist_path %></p>
+<% else %>
+  <ul>
+    <% @artists.each do |artist| %>
+        <li><%= link_to artist.name, artist_path(artist) %></li>
+    <% end %>
+  </ul>
+<% end %>

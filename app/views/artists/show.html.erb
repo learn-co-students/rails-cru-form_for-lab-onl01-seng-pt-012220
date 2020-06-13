@@ -1,0 +1,17 @@
+<h1>Artist: <%= @artist.name %></h1>
+
+<h2>About Artist: </h2>
+<p><%= @artist.bio %></p>
+
+<h2>List of Songs: </h2>
+<% if @artist.songs.empty? %>
+  <p>There's no song available yet for <%= @artist.name %>. <%= link_to "Add Song To The List!", new_song_path %></p>
+<% else %>
+  <% @artist.songs.each do |song| %>
+    <ul>
+      <li><%= link_to song.name, song_path(song) %></li>
+    </ul>
+  <% end %>
+<% end %>
+<br><br><br>
+<%= link_to "Edit Artist Info", edit_artist_path(@artist) %>
