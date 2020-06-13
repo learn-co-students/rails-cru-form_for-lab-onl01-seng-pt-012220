@@ -1,0 +1,9 @@
+<h1>Songs List</h1>
+
+<% if @songs.empty? %>
+  <p>This list is currently empty. <%= link_to "Add A Song Here!", new_song_path %></p>
+<% else %>
+  <% @songs.each do |song| %>
+    <p><%= link_to song.name, song_path(song) %></p>
+  <% end %>
+<% end %>

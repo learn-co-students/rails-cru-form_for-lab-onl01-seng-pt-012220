@@ -1,0 +1,28 @@
+<h1><%= @genre.name %></h1>
+<h2>Artists In This Genre </h2>
+
+<% if !@genre.artists.empty? %>
+  <% @genre.artists.uniq.each do |artist| %>
+    <ul>
+      <li><%= link_to artist.name, artist_path(artist) %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>There's no known artist in this category.</p>
+<% end %>
+<br>
+
+<h2>Songs In This Genre </h2>
+
+<% if !@genre.songs.empty? %>
+  <% @genre.songs.each do |song| %>
+    <ul>
+      <li><%= link_to song.name, song_path(song) %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>There's no known song in this category.</p>
+<% end %>
+<br><br><br>
+<%= link_to "Edit Page", edit_genre_path(@genre) %>
+
